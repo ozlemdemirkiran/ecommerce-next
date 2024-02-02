@@ -1,9 +1,16 @@
-
+import HomeContainer from "../../components/HomeContainer";
+import Banner from "../../components/Banner";
+import Trending from "../../components/Trending";
 
 export default function Home() {
   return (
     <>
-    <div>Merhabaa Home</div>
+    <div style={{display:"flex", flexDirection: "column"}}>
+      <div>Merhabaa Home</div>
+      <HomeContainer/>
+      <Banner/>
+      <Trending/>
+    </div>
     </>
   );
 }

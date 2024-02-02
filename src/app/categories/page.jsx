@@ -13,7 +13,7 @@ export default  function AboutPage (){
   return (
     <div >
       
-     merhaba about
+     merhaba Categories
     </div>
   );
 };
