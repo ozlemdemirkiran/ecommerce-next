@@ -5,8 +5,7 @@ import Trending from "../../components/Trending";
 export default function Home() {
   return (
     <>
-    <div style={{display:"flex", flexDirection: "column"}}>
-      <div>Merhabaa Home</div>
+    <div className="flex flex-col">
       <HomeContainer/>
       <Banner/>
       <Trending/>
