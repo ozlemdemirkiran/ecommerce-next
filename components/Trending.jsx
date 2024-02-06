@@ -4,13 +4,13 @@ import { useState, useEffect } from 'react';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import Popup from './popup';
-import { Button } from '@mui/material';
+
 
 
 export default function Trending() {
-
+    
     const [trendingData, setTrendingData] = useState([]);
-
+    const [selectedProduct, setSelectedProduct] = useState(null)
     const trendingFunc = async() => {
         fetch("https://fakestoreapi.com/products")
         .then((res) => res.json())
@@ -29,34 +29,10 @@ export default function Trending() {
     }, []);
 
 
-    const [isActive, setIsActive] = useState(false);
-    const open = event => {
-        setIsActive(true);
+    const open = (productId) => {
+       const findProduct = trendingData.find((card)=> card?.id === productId)
+       setSelectedProduct(findProduct)
     };
-
-
-
-    // const [isActive, setIsActive] = useState(false);
-
-    // const close = event => {
-    //     setIsActive(current => !current);
-    // };
-
-    // const gizleme = isActive ? 'hidden' : '';
-
-    // console.log(isActive)
-    
-    // function aa(){
-    //     if(isActive === 'true'){
-    //         console.log("isActive: True")
-    //     }else{
-    //         console.log("isActive: False")
-    //     }
-    // }
-    
-    
-
-    const element = isActive ? <Popup/> : null;
 
     return(
         <>
@@ -70,22 +46,13 @@ export default function Trending() {
                 </div>
             </div>
 
-             {/* <Popup /> prop={[close] [gizleme]} */}
-            
-            <Button className='bg-gray-700' onClick={open}>
-            Link
-            </Button>
-            {element}
-            
-
             <div className="row-container" style={{display:"flex", width:"100%", gap:"2.2rem", overflowX:"scroll", overflowY:"hidden", whiteSpace:"nowrap", scrollBehavior:"smooth", position: "relative",
                 padding: "1rem .6rem"}}>
 
                 {/* card */}
 
                 {trendingData.map((product) => (
-                    // <div onClick={acma}>
-                    <div className="flex flex-col gap-2" style={{outline: "2px solid rgba(0, 0, 0, .205)", width:"210px", height:"440px", cursor: "pointer"}}>
+                    <div onClick={()=>open(product?.id)} className="flex flex-col gap-2" style={{outline: "2px solid rgba(0, 0, 0, .205)", width:"210px", height:"440px", cursor: "pointer"}}>
                         <div className="item-header  p-2">
                             <img src={product.image} alt="product" style={{width: "210px", height:"210px"}} />
                         </div>
@@ -94,12 +61,12 @@ export default function Trending() {
                             <p style={{fontWeight:"bold", fontSize:"1.7rem"}}>{product.price}$</p>
                         </div>
                     </div>
-                    // </div>
                 ))}
 
             </div>
 
         </div>
+        {selectedProduct ? <Popup  selectedProduct={selectedProduct} setSelectedProduct={setSelectedProduct} /> : null}
         </>
     )
 }
