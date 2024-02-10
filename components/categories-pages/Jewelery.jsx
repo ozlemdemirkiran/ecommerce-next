@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import Popup from "../popup";
 
 export default function Jewelery () {
     const [jeweleryData, setJeweleryData] = useState([]);
+    const [selectedJewelery, setSelectedJewelry] = useState(null);
 
     const jeweleryFunc = async() => {
         fetch("https://fakestoreapi.com/products")
@@ -18,7 +20,10 @@ export default function Jewelery () {
         jeweleryFunc();
     }, []);
 
-    console.log(jeweleryData);
+    const open = (productId) => {
+        const findProduct = jeweleryData.find((card) => card?.id === productId);
+        setSelectedJewelry(findProduct);
+    };
 
     return(
         <>
@@ -28,7 +33,7 @@ export default function Jewelery () {
                     
                     
                     {jeweleryData.map((product) => (
-                        <div className='flex flex-col gap-2' style={{width: "220px", height: "410px", outline: "2px solid", outlineOffset: "-2px", transition: "all 0.15s ease-in"}}>
+                        <div onClick={()=>open(product?.id)} className='flex flex-col gap-2' style={{width: "220px", height: "410px", outline: "2px solid", outlineOffset: "-2px", transition: "all 0.15s ease-in"}}>
                                 
                             <div className='product-img m-0 p-0 box-border scroll-smooth p-2'>
                                 <img src={product.image} alt="product" style={{width: "100%", height: "250px"}} />
@@ -42,6 +47,7 @@ export default function Jewelery () {
                     ))}
                 </div>
             </div>
+            { jeweleryData ? <Popup selectedProduct={selectedJewelery} setSelectedProduct={setSelectedJewelry}/> : null}
         </>
     )
 }

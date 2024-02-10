@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import Popup from '../popup';
 
 export default function All () {
 
     const [allData, setAllData] = useState([]);
+    const [selectedAll, setSelectedAll] = useState(null);
 
     const allFunc = async() => {
         fetch("https://fakestoreapi.com/products")
@@ -19,7 +21,10 @@ export default function All () {
         allFunc();
     }, []);
 
-    console.log(allData);
+    const open = (productId) => {
+        const findProduct = allData.find((card)=> card?.id === productId)
+        setSelectedAll(findProduct)
+     };
 
     return(
         <>
@@ -28,7 +33,7 @@ export default function All () {
                 <div className='products-grid grid gap-5 mb-24' style={{gridTemplateColumns: "1fr 1fr 1fr 1fr"}}>
                     
                     {allData.map((product) => (
-                        <div className='flex flex-col gap-2' style={{width: "220px", height: "410px", outline: "2px solid", outlineOffset: "-2px", transition: "all 0.15s ease-in"}}>
+                        <div onClick={()=>open(product?.id)} className='flex flex-col gap-2' style={{width: "220px", height: "410px", outline: "2px solid", outlineOffset: "-2px", transition: "all 0.15s ease-in"}}>
                                     
                             <div className='product-img m-0 p-0 box-border scroll-smooth p-2'>
                                 <img src={product.image} alt="product" style={{width: "100%", height: "250px"}} />
@@ -43,7 +48,7 @@ export default function All () {
 
                 </div>
             </div>
-        
+            {selectedAll ? <Popup  selectedProduct={selectedAll} setSelectedProduct={setSelectedAll} /> : null}
         </>
     )
 }

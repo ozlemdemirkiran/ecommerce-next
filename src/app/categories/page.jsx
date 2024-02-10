@@ -9,10 +9,13 @@ import Jewelery from '../../../components/categories-pages/Jewelery';
 import WomensClothing from '../../../components/categories-pages/WomensClothing';
 import MensClothing from '../../../components/categories-pages/MensClothing';
 import Electronics from '../../../components/categories-pages/Electronics';
+import { useRouter } from "next/navigation";
 
 
 export default function categories(){
     const [value, setValue] = useState('all');
+
+    const router = useRouter();
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -23,10 +26,11 @@ export default function categories(){
         <div className="w-full px-5 pt-24">
                 <div className="catego-header flex flex-col items-center pt-4 gap-6">
                     <div className="title-home flex items-center w-full">
-                        <a className='flex items-center text-left'> 
+                        <button className='flex items-center text-left'
+                        onClick={() => router.push('/')}> 
                             <ArrowBackIosIcon className='text-base'/>
                             Home
-                        </a>
+                        </button>
                         <h3 className='text-2xl font-bold uppercase text-center my-0 mx-auto'>All</h3>
                     </div>
                     <div className="filter-btns flex flex-col items-center gap-10 w-full justify-center">
