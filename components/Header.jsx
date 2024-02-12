@@ -24,7 +24,7 @@ export default function Header() {
             >CATEGORIES
             </button>
 
-            <ShoppingCartCheckoutIcon className="cursor-pointer"/>
+            <ShoppingCartCheckoutIcon onClick={() => router.push('/shopping-cart')} className="cursor-pointer"/>
         </div>
 
     </div>

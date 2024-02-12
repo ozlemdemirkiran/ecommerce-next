@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .trending-slider {
     height: 485px;
     outline: 1px solid rgba(0, 0, 0, .205);
@@ -9,4 +10,8 @@
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 40px;
+}
+
+.rotate-180 {
+    transform: rotate(180deg);
 }

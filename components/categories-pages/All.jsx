@@ -24,8 +24,8 @@ export default function All () {
     const open = (productId) => {
         const findProduct = allData.find((card)=> card?.id === productId)
         setSelectedAll(findProduct)
-     };
-
+    };
+    console.log(allData)
     return(
         <>
 

@@ -11,7 +11,7 @@ export default function Banner() {
                 <div className="flex flex-col justify-center w-1/2 p-36 gap-14">
                     <h1 className="font-bold text-2xl">Creative harmonious living</h1>
                     <p>Products are all made to standard sizes so that you can mix and match them freely.</p>
-                    <Button variant="outlined" style={{}}>Primary</Button>
+                    <Button className="banner-button hover:bg-slate-500 hover:text-white" variant="outlined" style={{}}>Primary</Button>
                 </div>
 
                 <div className="w-1/2">
