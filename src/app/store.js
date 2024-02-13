@@ -1,23 +1,29 @@
-// import { configureStore } from '@reduxjs/toolkit';
+'use client'
 
-// const initialState = {
-//     count: 0,
-// };
+import { createStore } from 'redux';
 
-// const reducer = (state = initialState, action) => {
-// switch (action.type) {
-//     case 'INCREMENT':
-//         return { ...state, count: state.count + 1 };
-//     case 'DECREMENT':
-//         return { ...state, count: state.count - 1 };
-//     default:
-//         return state;
-// }
-// };
+const initialState = {
+  count: 0,
+};
 
-// const store = configureStore({
-//     reducer,
-// });
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'INCREMENT':
+      return {
+        ...state,
+        count: state.count + 1,
+      };
+    case 'DECREMENT':
+      return {
+        ...state,
+        count: state.count - 1,
+      };
+    default:
+      return state;
+  }
+};
 
-// export default store;
+const store = createStore(reducer);
+
+export default store;
 

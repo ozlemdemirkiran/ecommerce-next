@@ -2,7 +2,7 @@
 
 import Button from '@mui/material/Button';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
-// import ReduxDeneme from '../../../components/reduxdeneme';
+import ReduxComponent from '../../../components/ReduxComponent';
 
 
 export default function shoppingCart(){
@@ -15,12 +15,12 @@ export default function shoppingCart(){
                 <div className="flex justify-between items-center border-y-2 py-5">
                     <div><img src={"https://picsum.photos/150/200"}/></div>
                     <div className='w-96'><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur fugiat dolore itaque.</span></div>
-                    <div className='flex gap-1 justify-center items-center'>
+                    {/* <div className='flex gap-1 justify-center items-center'>
                         <button className='border-2 px-2 bg-gray-200 rounded'>-</button>
                         <input type='text' value={1} pattern='0-9' className='w-11 py-2 text-center border-2 rounded'/>
                         <button className='border-2 px-2 bg-gray-200 rounded'>+</button>
-                    </div>
-                    {/* <ReduxDeneme/> */}
+                    </div> */}
+                    <ReduxComponent/>
                     <div>122 $</div>
                     <div className='text-lg'><DeleteOutlinedIcon /></div>
                 </div>
