@@ -25,7 +25,6 @@ export default function All () {
         const findProduct = allData.find((card)=> card?.id === productId)
         setSelectedAll(findProduct)
     };
-    console.log(allData)
     return(
         <>
 
