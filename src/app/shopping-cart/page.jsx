@@ -13,7 +13,6 @@ export default function shoppingCart(){
     const decrement = () => dispatch({ type: 'DECREMENT' });
 
 
-    // const [cartProduct, setCartProduct] = useState([]);
 
 
 

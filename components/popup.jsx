@@ -1,12 +1,15 @@
 import CloseIcon from '@mui/icons-material/Close';
 import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 
 
 export default function Popup({selectedProduct, setSelectedProduct}){
 
     const [wholeData, setWholeData] = useState([]);
-    // const [cartProduct, setCartProduct] = useState([]);
+    //const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(() => {
+    const storedCart = localStorage.getItem('cart');
+    return storedCart ? JSON.parse(storedCart) : [];
+    });
 
     const DataFunc = async() => {
         fetch("https://fakestoreapi.com/products")
@@ -21,38 +24,34 @@ export default function Popup({selectedProduct, setSelectedProduct}){
 
     useEffect(() => {
         DataFunc();
-    }, []);
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }, [cart]);
 
-    // const addCart = (productId) => {
-    //     const findProduct = wholeData.find((card)=> card?.id === productId)
-    //     setCartProduct([...cartProduct, findProduct]);
-    //     // setCartProduct(findProduct)
-    //     console.log(cartProduct)
-    // };
-
-    const count = useSelector(state => state.count);
-    const dispatch = useDispatch();
-    // const added = useSelector(state => state.items);
-
-    // const add = (product) => {
-    //     // const findProduct = wholeData.find((card)=> card?.id === productId)
-    //     const newItem = {
-    //         id: product.id,
-    //         title: product.title,
-    //         price: product.price,
-    //         image: product.image
-    //     }
-    //     dispatch(addItem(newItem))
-    // };
-
-    // console.log(added)
-
-
+    // POPUP Close
     const close = () => {
         
         setSelectedProduct(null)
     };
 
+    //Add to cart
+    const itemPush = () => {
+        const findProduct = wholeData.find((card)=> card?.id === selectedProduct?.id)
+        kkk(findProduct)
+    }
+    
+    function kkk (item) {
+        const controlProduct = cart.find((card)=> card?.id === selectedProduct?.id)
+        setTimeout(() => {
+            if(controlProduct){
+                setCart([...cart, item])
+                console.log(cart)
+                //console.log("bu ürün var...")  
+            }else{
+                setCart([...cart, item])
+                console.log(cart)
+            }
+        }, 1100)
+    }
 
     return(
     <>
@@ -82,27 +81,11 @@ export default function Popup({selectedProduct, setSelectedProduct}){
         </div>
 
         <button className="urun-olustur-butonu text-white py-2 border-2 rounded-lg text-xl bg-orange-600">Add to cart</button>
-        
-        <button className='border p-2' onClick={()=>addCart(selectedProduct?.id)}>sepete ekle</button>
-        <button className='border p-2' onClick={add(selectedProduct)}>ADD</button>
 
+        <button onClick={() => itemPush()} className='border p-2 bg-gray-500'>Add</button>
     </div>
     </div>
 
-
-    {/* {wholeData.map((product) => (
-                    <div className='trending-slider'>
-                        <div onClick={()=>addCart(product?.id)} className=" flex flex-col gap-2 cursor-pointer">
-                        <div className="item-header  p-2">
-                            <img src={product.image} alt="product" style={{width: "210px", height:"210px"}} />
-                        </div>
-                        <div className="item-description flex flex-col gap-1 px-2 text-wrap" style={{ width:"210px", height:"auto"}}>
-                            <p style={{fontSize:"1.2rem"}}>{product.title}</p>
-                            <p style={{fontWeight:"bold", fontSize:"1.7rem"}}>{product.price}$</p>
-                        </div>
-                    </div>
-                    </div>
-        ))} */}
     </>
     )
 }
