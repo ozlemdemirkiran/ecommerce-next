@@ -47,7 +47,7 @@ export default function MensClothing () {
                     ))}
                 </div>
             </div>
-            { selectedMen ? <Popup selectedProduct={selectedMen} setSelectedProduct={setSelectedMen}/> : null}
+            { selectedMen ? <Popup selectedproduct={selectedMen} setselectedproduct={setSelectedMen}/> : null}
         </>
     )
 }

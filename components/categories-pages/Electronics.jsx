@@ -48,7 +48,7 @@ export default function Electronics () {
                     ))}
                 </div>
             </div>
-            {selectedElectronics ? <Popup  selectedProduct={selectedElectronics} setSelectedProduct={setSelectedElectronics} /> : null}
+            {selectedElectronics ? <Popup  selectedproduct={selectedElectronics} setselectedproduct={setSelectedElectronics} /> : null}
         </>
     )
 }

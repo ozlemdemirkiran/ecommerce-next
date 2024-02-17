@@ -47,7 +47,7 @@ export default function All () {
 
                 </div>
             </div>
-            {selectedAll ? <Popup  selectedProduct={selectedAll} setSelectedProduct={setSelectedAll} /> : null}
+            {selectedAll ? <Popup  selectedproduct={selectedAll} setselectedproduct={setSelectedAll} /> : null}
         </>
     )
 }

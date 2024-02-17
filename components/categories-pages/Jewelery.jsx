@@ -47,7 +47,7 @@ export default function Jewelery () {
                     ))}
                 </div>
             </div>
-            { jeweleryData ? <Popup selectedProduct={selectedJewelery} setSelectedProduct={setSelectedJewelry}/> : null}
+            { jeweleryData ? <Popup selectedproduct={selectedJewelery} setselectedproduct={setSelectedJewelry}/> : null}
         </>
     )
 }

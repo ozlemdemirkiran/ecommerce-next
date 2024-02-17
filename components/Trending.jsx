@@ -67,7 +67,7 @@ export default function Trending() {
 
             <Slider {...settings}>
                 {trendingData.map((product) => (
-                    <div className='trending-slider'>
+                    <div className='trending-slider' key={product.id}>
                         <div onClick={()=>open(product?.id)} className=" flex flex-col gap-2 cursor-pointer">
                         <div className="item-header  p-2">
                             <img src={product.image} alt="product" style={{width: "210px", height:"210px"}} />
@@ -81,7 +81,7 @@ export default function Trending() {
                 ))}
             </Slider>
         </div>
-        {selectedProduct ? <Popup  selectedProduct={selectedProduct} setSelectedProduct={setSelectedProduct} /> : null}
+        {selectedProduct ? <Popup  selectedproduct={selectedProduct} setselectedproduct={setSelectedProduct} /> : null}
         </>
     )
 }
