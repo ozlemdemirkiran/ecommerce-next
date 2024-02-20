@@ -46,7 +46,8 @@ export default function Popup({selectedproduct, setselectedproduct}){
     function cartAdd (item) {
         const controlProduct = cart?.find((card)=> card?.id === selectedproduct?.id)
             if(controlProduct){
-                console.log("bu ürün var...")  
+                // console.log("bu ürün var...")
+                setCart([...cart, item])  
             }else{
                 setCart([...cart, item])
             }

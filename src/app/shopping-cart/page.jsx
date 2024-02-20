@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 
 export default function shoppingCart(){
     const [yeni, setYeni] = useState([]);
+    // const [productsCart, setProductsCart] = useState([]);
     const count = useSelector(state => state.count);
     const dispatch = useDispatch();
 
@@ -18,28 +19,88 @@ export default function shoppingCart(){
     useEffect(() => {
         const storedCart = localStorage.getItem('cart');
         if (storedCart) {
-        setYeni(JSON.parse(storedCart));
+            setYeni(JSON.parse(storedCart));
         }
     }, []);
+    
+    const uniqueProducts = yeni.filter((urun, index) => {
+        const urunId = urun.id;
+        return yeni.findIndex(urun => urun.id === urunId) === index;
+    });
+
+
+
+
+
+    const [counttt, setCounttt] = useState(0);
+    const [pricee, setPricee] = useState(0);
+    
+    // const handleAddProduct = () => {
+    //     setCounttt(counttt + 1);
+    // };
+
+    // const [productPrices, setProductPrices] = useState(uniqueProducts.map(product => product.price));
+
+    // const handleIncreasePrice = (index) => {
+    //   const newProductPrices = [...productPrices];
+    //   newProductPrices[index] += newProductPrices[index];
+    //   setProductPrices(newProductPrices);
+    //   console.log(productPrices)
+    // };
+
+    
+    const removeFromCart = (productId) => {
+        const updatedCart = yeni.filter(item => item.id !== productId);
+        setYeni([...yeni].splice(updatedCart));
+        console.log(yeni)
+    };
 
     return(
     <>
         <div className="flex justify-between gap-5 w-full px-16 pt-28 pb-10">
             <div className="flex flex-col gap-5 left w-3/4">
                 <h2 className="text-lg">Your Selections</h2>
-                {yeni.map((product) => (
+                {uniqueProducts.map((product) => (
                     <div className="flex justify-between items-center border-y-2 py-5">
                     <div><img src={product?.image} style={{width: "170px", height: "180px"}}/></div>
-                    <div className='w-96'>{product?.title}</div>
+                    {/* <div className='w-96'>{product?.title}</div>
                         <div className='flex gap-1 justify-center items-center'>
                             <button className='border-2 px-2 bg-gray-200 rounded' onClick={decrement}>-</button>
                             <input type='text' value={count + 1} pattern='0-9' className='w-11 py-2 text-center border-2 rounded'/>
                             <button className='border-2 px-2 bg-gray-200 rounded' onClick={increment}>+</button>
-                        </div>
-                    <div>{product?.price} $</div>
-                    <div className='text-lg'><DeleteOutlinedIcon /></div>
+                        </div> */}
+                    <div>{pricee} $</div>
+                    {/* <div className='text-lg'><DeleteOutlinedIcon /></div>
+
+                    <input type="text" className='w-11 py-2 text-center border-2 rounded' value={yeni.filter(item => item.id === product.id).length} pattern='0-9'/>
+                     */}
+
+
+
+
+
+                    <button className='border-2 px-2 bg-gray-200 rounded' onClick={() => removeFromCart(product.id)}>-</button>
+                    <input type="text" className='w-11 py-2 text-center border-2 rounded' value={yeni.filter(item => item.id === product.id).length} pattern='0-9'/>
+                    <button className='border-2 px-2 bg-gray-200 rounded' onClick={()=>{setYeni([...yeni, product]), console.log(yeni)}}>+</button>
+                    
+                    {/* <div>
+                        <p> {counttt}</p>
+                        <button onClick={()=> {
+                            setCounttt(counttt + 1);
+
+                            setPricee(prevPrice => prevPrice + product?.price)
+                            console.log(pricee)
+
+                        }}>Ürün Ekle</button>
+                        
+                    </div> */}
+{/* Sepetten ürün çıkarmak için bir removeProduct fonksiyonu ekleyebilirsiniz. */}
+                    
+        
+
                 </div>
                 ))}
+
             </div>
 
             <div className="right flex flex-col gap-3 border-2 w-1/4 px-5 py-3">
