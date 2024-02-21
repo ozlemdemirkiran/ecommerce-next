@@ -23,7 +23,7 @@ export default function categories(){
     return(
         <>
         
-        <div className="w-full px-5 pt-24">
+        <div className="w-full px-5 sm:pt-24 pt-12">
                 <div className="catego-header flex flex-col items-center pt-4 gap-6">
                     <div className="title-home flex items-center w-full">
                         <button className='flex items-center text-left'

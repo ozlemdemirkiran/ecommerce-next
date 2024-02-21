@@ -2,8 +2,8 @@
 export default function Footer() {
     return(
         <>
-        <div className="flex flex-col justify-center h-72 bg-black text-center gap-12 text-white">
-            <div className="flex gap-10 justify-center font-bold">
+        <div className="flex flex-col justify-center h-72 bg-black text-center sm:w-full w-52 gap-12 text-white">
+            <div className="flex sm:flex-row flex-col sm:gap-10 gap-2 justify-center font-bold">
                 <a href="#">About</a>
                 <a href="#">Store locator</a>
                 <a href="#">FAQs</a>

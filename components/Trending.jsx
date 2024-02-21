@@ -62,7 +62,7 @@ export default function Trending() {
 
     return(
         <>
-        <div className='flex flex-col gap-5 my-0 mx-auto pb-40 px-5 py-0' style={{maxWidth:"1200px"}}>
+        <div className='flex flex-col gap-5 my-0 mx-auto pb-40 px-5 py-0 sm:block hidden' style={{maxWidth:"1200px"}}>
             <div className="flex justify-center">
                 <h3 className="font-bold text-3xl">Trending Now</h3>
             </div>

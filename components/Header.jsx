@@ -12,14 +12,14 @@ export default function Header() {
 
     return (
     <>
-    <div className="z-20 fixed flex justify-between px-40 items-center h-24 w-full shadow-md bg-white">
+    <div className="z-20 fixed flex sm:justify-between justify-between sm:px-40 px-3 items-center sm:h-24 h-18 sm:w-full w-52 shadow-md bg-white">
         <div className="flex items-center gap-5">
-            <Image onClick={() => router.push('/')} className="w-24 cursor-pointer" src={logo} alt='logo'/>
-            <h1 className="font-bold text-2xl">Shopping Website</h1>
+            <Image onClick={() => router.push('/')} className="sm:w-24 w-14 cursor-pointer" src={logo} alt='logo'/>
+            <h1 className="font-bold text-2xl sm:block hidden">Shopping Website</h1>
         </div>
-        <div className="flex items-center gap-12">
+        <div className="flex items-center sm:gap-12 gap-5">
     
-            <button className="font-bold text-lg" onClick={() => router.push('/categories')}
+            <button className="sm:font-bold font-normal sm:text-lg text-sm" onClick={() => router.push('/categories')}
             >CATEGORIES
             </button>
 
