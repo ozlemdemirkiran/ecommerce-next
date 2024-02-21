@@ -19,8 +19,7 @@ export default function Header() {
         </div>
         <div className="flex items-center gap-12">
     
-            <button className="font-bold text-lg"
-            onClick={() => router.push('/categories')}
+            <button className="font-bold text-lg" onClick={() => router.push('/categories')}
             >CATEGORIES
             </button>
 

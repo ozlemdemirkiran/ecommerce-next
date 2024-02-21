@@ -31,7 +31,7 @@ export default function categories(){
                             <ArrowBackIosIcon className='text-base'/>
                             Home
                         </button>
-                        <h3 className='text-2xl font-bold uppercase text-center my-0 mx-auto'>All</h3>
+                        <h3 className='text-2xl font-bold uppercase text-center my-0 mx-auto'>{value}</h3>
                     </div>
                     <div className="filter-btns flex flex-col items-center gap-10 w-full justify-center">
 

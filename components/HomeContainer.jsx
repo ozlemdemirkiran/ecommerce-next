@@ -2,13 +2,11 @@
 
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-// import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Image from "next/image";
 import livingroom from '../public/images/livingroom.jpg';
 import kitchen from '../public/images/kitchen.jpg';
 import electronics from '../public/images/electronic.jpg';
-
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -25,7 +23,6 @@ export default function HomeContainer(){
             <div className="max-w-7xl px-18 mx-auto">
                 <div className=" h-1/2 mt-5 py-5 my-5">
                     <div>
-                    
                         <Grid container spacing={3}>
                             <Grid item xs>
                                 <Item>
@@ -46,7 +43,6 @@ export default function HomeContainer(){
                                 </Item>
                             </Grid>
                         </Grid>
-    
                     </div>
                 </div>
             </div>
