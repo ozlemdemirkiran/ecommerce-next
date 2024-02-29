@@ -35,8 +35,12 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
+<<<<<<< HEAD
 ![site--1](https://github.com/ozlemdemirkiran/ecommerce-next/assets/80256818/efc8bc8f-06c2-4bd7-b485-c55a42b50283)
 *******
 ![site-2](https://github.com/ozlemdemirkiran/ecommerce-next/assets/80256818/b0168f1c-42f2-42cd-8459-7949e94f02f7)
 *******
 ![site-3](https://github.com/ozlemdemirkiran/ecommerce-next/assets/80256818/5ca66c87-2b5e-45a2-b9c0-cb2cf7bffa75)
+=======
+
+>>>>>>> 3066160b0c4898f695622771da4dd22bd0351096
