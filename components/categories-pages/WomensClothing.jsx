@@ -31,7 +31,8 @@ export default function WomensClothing () {
                 <div className='products-grid grid gap-5 mb-24' style={{gridTemplateColumns: "1fr 1fr 1fr 1fr"}}>
                     
                     {womenData.map((product) => (
-                        <div onClick={()=> open(product?.id)} className='flex flex-col gap-2 outline outline-2 outline-offset-2' 
+                        <div onClick={()=> open(product?.id)} className='flex flex-col gap-2 outline outline-2 
+                        outline-offset-2' 
                         style={{width: "220px", height: "410px"}}>
                             <div className='product-img m-0 p-0 box-border scroll-smooth p-2 w-full'>
                                 <img src={product.image} alt="product" style={{ height: "250px"}} />
@@ -50,7 +51,8 @@ export default function WomensClothing () {
                 <div className='products-grid flex flex-col gap-5 mb-24'>
                     
                     {womenData.map((product) => (
-                        <div onClick={()=> open(product?.id)} className='flex flex-col gap-2 outline outline-2 outline-offset-2' 
+                        <div onClick={()=> open(product?.id)} className='flex flex-col gap-2 outline outline-2 
+                        outline-offset-2' 
                         style={{width: "200px", height: "390px"}}>
                             <div className='product-img m-0 p-0 box-border scroll-smooth p-2 w-full'>
                                 <img src={product.image} alt="product" style={{ height: "240px"}} />

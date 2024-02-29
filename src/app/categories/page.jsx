@@ -33,7 +33,8 @@ export default function categories(){
                         </button>
                         <h3 className='text-2xl font-bold uppercase text-center my-0 mx-auto'>{value}</h3>
                     </div>
-                    <div className="sm:m-0 ml-0 filter-btns flex flex-col items-center sm:gap-10 gap-2 sm:w-full w-60 justify-center">
+                    <div className="sm:m-0 ml-0 filter-btns flex flex-col items-center sm:gap-10 gap-2 
+                    sm:w-full w-60 justify-center">
 
                         <Tabs
                         value={value}
