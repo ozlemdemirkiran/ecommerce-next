@@ -23,9 +23,9 @@ export default function categories(){
     return(
         <>
         
-        <div className="w-full px-5 sm:pt-24 pt-12">
-                <div className="catego-header flex flex-col items-center pt-4 gap-6">
-                    <div className="title-home flex items-center w-full">
+        <div className="sm:w-full w-60 sm:px-5 px-0 sm:pt-24 pt-12">
+                <div className="catego-header flex flex-col items-center sm:w-full w-60  pt-4 gap-6">
+                    <div className="title-home flex items-center sm:w-full w-60">
                         <button className='flex items-center text-left'
                         onClick={() => router.push('/')}> 
                             <ArrowBackIosIcon className='text-base'/>
@@ -33,16 +33,31 @@ export default function categories(){
                         </button>
                         <h3 className='text-2xl font-bold uppercase text-center my-0 mx-auto'>{value}</h3>
                     </div>
-                    <div className="filter-btns flex flex-col items-center gap-10 w-full justify-center">
+                    <div className="sm:m-0 ml-0 filter-btns flex flex-col items-center sm:gap-10 gap-2 sm:w-full w-60 justify-center">
 
                         <Tabs
                         value={value}
                         onChange={handleChange}
                         aria-label="secondary tabs example"
+                        className='sm:block hidden'
                         >
                             <Tab value="all" label="All"/>
                             <Tab value="jewellery" label="Jewellery"/>
                             <Tab value="women's clothing" label="Women's Clothing"/>
+                            <Tab value="men's clothing" label="Men's Clothing" />
+                            <Tab value="electronics" label="Electronics" />
+                        </Tabs>
+
+                        <Tabs
+                        orientation="vertical"
+                        value={value}
+                        onChange={handleChange}
+                        aria-label="Vertical tabs example"
+                        className='sm:hidden block'
+                        >
+                            <Tab value="all" label="All" />
+                            <Tab value="jewellery" label="Jewellery" />
+                            <Tab value="women's clothing" label="Women's Clothing" />
                             <Tab value="men's clothing" label="Men's Clothing" />
                             <Tab value="electronics" label="Electronics" />
                         </Tabs>
